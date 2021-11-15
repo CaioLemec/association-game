@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 const App = () => {
-  const [chosenLevel, setChosenLevel] = useState(10);
+  const [chosenLevel, setChosenLevel] = useState(null);
   const [words, setWords] = useState(null);
   const [correctAnswers, setCorrectAnswers] = useState([]);
   const [clicked, setClicked] = useState([]);
@@ -81,7 +81,9 @@ const App = () => {
             {words.quizlist.map((question, _questionIndex) => (
               <div key={_questionIndex} className="question-box">
                 {question.quiz.map((tip, _index) => (
-                  <p className="question-tips" key={_index}>{tip}</p>
+                  <p className="question-tips" key={_index}>
+                    {tip}
+                  </p>
                 ))}
                 <div className="question-buttons">
                   {question.option.map((option, optionIndex) => (
